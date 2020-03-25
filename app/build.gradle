@@ -5,7 +5,7 @@ android {
     defaultConfig {
         applicationId "work.kozh.mediaplayerhelper"
         minSdkVersion 21
-        targetSdkVersion 29
+        targetSdkVersion 25
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"

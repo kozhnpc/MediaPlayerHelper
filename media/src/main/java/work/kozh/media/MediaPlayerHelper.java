@@ -211,20 +211,20 @@ public class MediaPlayerHelper {
      * @param speed
      */
     private void changedSpeed(float speed) {
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
-            if (!TextUtils.isEmpty(path)) {
-                try {
+        try {
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (!TextUtils.isEmpty(path)) {
                     mediaPlayer.setPlaybackParams(new PlaybackParams().setSpeed(speed));
                     secondsTemp = (int) (SECONDS_NORMAL_SPPED / speed);
                     mediaPlayer.pause();
                     MediaStart();
-                } catch (Exception e) {
-                    e.printStackTrace();
+                } else {
+                    speedText = MEDIA_CHECKEDSPEED_1_0;
+                    Toast.makeText(mContext, "无效的播放地址", Toast.LENGTH_SHORT).show();
                 }
-            } else {
-                speedText = MEDIA_CHECKEDSPEED_1_0;
-                Toast.makeText(mContext, "无效的播放地址", Toast.LENGTH_SHORT).show();
             }
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 
