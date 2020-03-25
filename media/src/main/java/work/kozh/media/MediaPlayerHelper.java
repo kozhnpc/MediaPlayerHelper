@@ -218,6 +218,7 @@ public class MediaPlayerHelper {
                     secondsTemp = (int) (SECONDS_NORMAL_SPPED / speed);
                     mediaPlayer.pause();
                     MediaStart();
+                    Log.i("TAG", "倍速后播放器状态" + mediaPlayer.isPlaying());
                 } else {
                     speedText = MEDIA_CHECKEDSPEED_1_0;
                     Toast.makeText(mContext, "无效的播放地址", Toast.LENGTH_SHORT).show();
