@@ -3,6 +3,8 @@ package work.kozh.media.dialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.net.Uri;
+import android.support.annotation.NonNull;
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -12,7 +14,6 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import androidx.annotation.NonNull;
 import work.kozh.media.R;
 
 
@@ -55,7 +56,7 @@ public class MediaPlayerDialog extends Dialog {
         WindowManager.LayoutParams params = new WindowManager.LayoutParams();
 
         params.width = (int) (context.getResources().getDisplayMetrics().widthPixels * 0.9);
-        params.height = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.8);
+        params.height = (int) (context.getResources().getDisplayMetrics().heightPixels * 0.9);
 
         setContentView(view, params);
 
@@ -74,10 +75,16 @@ public class MediaPlayerDialog extends Dialog {
 
     //设置图片
     public void setImagePoster(String path) {
+        if (TextUtils.isEmpty(path)) {
+            return;
+        }
         Glide.with(mContext).load(path).into(mPoster);
     }
 
     public void setImagePoster(Uri path) {
+        if (path == null) {
+            return;
+        }
         Glide.with(mContext).load(path).into(mPoster);
     }
 
@@ -133,11 +140,11 @@ public class MediaPlayerDialog extends Dialog {
     }
 
     //获取dialog的宽高
-    public int getDialogWidth(){
+    public int getDialogWidth() {
         return (int) (mContext.getResources().getDisplayMetrics().widthPixels * 0.9);
     }
 
-    public int getDialogHeight(){
+    public int getDialogHeight() {
         return (int) (mContext.getResources().getDisplayMetrics().heightPixels * 0.8);
     }
 

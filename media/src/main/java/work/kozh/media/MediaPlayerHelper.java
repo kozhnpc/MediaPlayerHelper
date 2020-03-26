@@ -12,6 +12,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Handler;
 import android.os.Message;
+import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -24,7 +25,6 @@ import android.widget.Toast;
 
 import java.util.concurrent.ScheduledExecutorService;
 
-import androidx.annotation.NonNull;
 import work.kozh.media.dialog.MediaPlayerDialog;
 
 /**
